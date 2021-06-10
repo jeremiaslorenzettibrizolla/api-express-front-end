@@ -6,7 +6,19 @@ axios
   .get('/growdevers')
   .then(response => {
     response.data.forEach(item => {
-      lista.innerHTML += `${item.nome} <br/>`;
+      lista.innerHTML += 
+      `
+        <ol class="list-group list-group row col-3 me-auto">
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div>
+              <b>Nome:</b> ${item.nome}</br>
+              <b>Turma:</b> ${item.turma}</br>
+              <b>Cidade:</b> ${item.cidade}
+            </div>
+            <span class="badge bg-primary rounded-pill">${item.idade} Anos</span>
+          </li>
+        </ol>
+      `;
     });
   })
   .catch(error => console.log(error));
